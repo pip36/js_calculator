@@ -7,15 +7,30 @@ h1 {
   text-align: center;
 }
 
+p{
+  font-size: 40px;
+  margin-top: -3px
+}
+
 table{
   border: 1px solid black;
+  margin:auto;
+  background-color: #0d1d38;
 }
 
 .button{
 border: 1px solid black;
 width:100px;
 height:100px;
+text-align: center;
+vertical-align: middle;
+line-height: 100px;
+background-color: #5583cc;
 }
 #output{
   height:70px;
+  border: 1px solid black;
+  font-size: 40px;
+  text-align: right;
+  background-color: #abc7f4
 }
