@@ -76,40 +76,36 @@ $(document).ready(function(){
     });
 
     $("#add").click(function(){
-      if (Operation === "")
-      {
+
         LoggedNumber = DisplayedNumber;
         DisplayedNumber = "";
         Operation = "add";
         UpdateDisplay();
-      }
+
     });
     $("#subtract").click(function(){
-      if (Operation === "")
-      {
+
         LoggedNumber = DisplayedNumber;
         DisplayedNumber = "";
         Operation = "subtract";
         UpdateDisplay();
-      }
+
     });
     $("#times").click(function(){
-      if (Operation === "")
-      {
+
         LoggedNumber = DisplayedNumber;
         DisplayedNumber = "";
         Operation = "times";
         UpdateDisplay();
-      }
+
     });
     $("#divide").click(function(){
-      if (Operation === "")
-      {
+
         LoggedNumber = DisplayedNumber;
         DisplayedNumber = "";
         Operation = "divide";
         UpdateDisplay();
-      }
+
     });
 
     $("#equals").click(function(){
