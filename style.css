@@ -1,0 +1,21 @@
+
+h1 {
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  margin:auto;
+  text-align: center;
+}
+
+table{
+  border: 1px solid black;
+}
+
+.button{
+border: 1px solid black;
+width:100px;
+height:100px;
+}
+#output{
+  height:70px;
+}
