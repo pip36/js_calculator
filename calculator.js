@@ -1,7 +1,9 @@
-var DisplayedNumber = "";
+var CurrentNumber = "";
 var LoggedNumber = "0";
 var Operation = "";
 
+// Contains possible calculations, takes 2 inputs then returns the result
+// of the given operation on the number
 var Calculate = function(number1, number2, op)
 {
   number1 = parseInt(number1);
@@ -24,104 +26,48 @@ var Calculate = function(number1, number2, op)
     }
 }
 
-var UpdateDisplay = function()
+// Function displays the given number in the outup screen
+var UpdateDisplay = function(number)
 {
-  $("output").html(DisplayedNumber);
+  $("output").html(number);
+}
+
+// Clears all numbers from memory and clears the output screen
+var ClearAll = function()
+{
+  CurrentNumber = "";
+  Operation = "";
+  UpdateDisplay(CurrentNumber);
 }
 
 
 $(document).ready(function(){
 
-    $("output").html(DisplayedNumber);
+    $("output").html(CurrentNumber);
 
-    $("#0").click(function(){
-        DisplayedNumber += "0";
-        UpdateDisplay();
-    });
-    $("#1").click(function(){
-        DisplayedNumber += "1";
-        UpdateDisplay();
-    });
-    $("#2").click(function(){
-        DisplayedNumber += "2";
-        UpdateDisplay();
-    });
-    $("#3").click(function(){
-        DisplayedNumber += "3";
-        UpdateDisplay();
-    });
-    $("#4").click(function(){
-        DisplayedNumber += "4";
-        UpdateDisplay();
-    });
-    $("#5").click(function(){
-        DisplayedNumber += "5";
-        UpdateDisplay();
-    });
-    $("#6").click(function(){
-        DisplayedNumber += "6";
-        UpdateDisplay();
-    });
-    $("#7").click(function(){
-        DisplayedNumber += "7";
-        UpdateDisplay();
-    });
-    $("#8").click(function(){
-        DisplayedNumber += "8";
-        UpdateDisplay();
-    });
-    $("#9").click(function(){
-        DisplayedNumber += "9";
-        UpdateDisplay();
+    $(".num").click(function(){
+      // Clear the operation symbol from display by only allowing numbers
+      if (CurrentNumber != "\^[0-9]"){
+        CurrentNumber = ""
+      }
+        CurrentNumber += $(this).val();
+        UpdateDisplay(CurrentNumber);
     });
 
-    $("#add").click(function(){
 
-        LoggedNumber = DisplayedNumber;
-        DisplayedNumber = "";
-        Operation = "add";
-        UpdateDisplay();
-
-    });
-    $("#subtract").click(function(){
-
-        LoggedNumber = DisplayedNumber;
-        DisplayedNumber = "";
-        Operation = "subtract";
-        UpdateDisplay();
-
-    });
-    $("#times").click(function(){
-
-        LoggedNumber = DisplayedNumber;
-        DisplayedNumber = "";
-        Operation = "times";
-        UpdateDisplay();
-
-    });
-    $("#divide").click(function(){
-
-        LoggedNumber = DisplayedNumber;
-        DisplayedNumber = "";
-        Operation = "divide";
-        UpdateDisplay();
-
+    $(".operation").click(function(){
+        LoggedNumber = CurrentNumber;
+        CurrentNumber = "";
+        Operation = $(this).val();
+        UpdateDisplay(CurrentNumber);
     });
 
     $("#equals").click(function(){
-      $("output").html(Calculate(LoggedNumber,DisplayedNumber,Operation).toString());
-       DisplayedNumber = Calculate(LoggedNumber,DisplayedNumber,Operation).toString();
-       UpdateDisplay();
+      CurrentNumber = Calculate(LoggedNumber,CurrentNumber,Operation).toString();
+       UpdateDisplay(CurrentNumber);
     });
 
-
-
     $("#clear").click(function(){
-
-      DisplayedNumber = "";
-      Operation = "";
-      UpdateDisplay();
-
+      ClearAll();
     })
-
 });
